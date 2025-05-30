@@ -1,0 +1,180 @@
+/* Reset dan dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Video background fullscreen */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6);
+}
+
+/* Logo tengah atas */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  cursor: pointer;
+  display: block;
+  width: 160px;
+  height: auto;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hamburger (kanan atas) */
+.hamburger {
+  position: fixed;
+  top: 25px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 20;
+  width: 30px;
+  height: 25px;
+  user-select: none;
+}
+.hamburger span {
+  flex: 1;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* Animasi tombol hamburger saat aktif */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Menu navigation (slide dari kanan) */
+.nav-menu {
+  position: fixed;
+  top: 70px;
+  right: -220px;
+  width: 200px;
+  background: transparent;
+  backdrop-filter: none;
+  transition: right 0.4s ease;
+  z-index: 15;
+}
+
+.nav-menu.active {
+  right: 20px;
+}
+
+/* List menu */
+.nav-menu ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav-menu li {
+  margin: 15px 0;
+}
+
+/* Link menu */
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #00ffff;
+}
+
+/* Tulisan sambutan tengah layar */
+.content {
+  color: white;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 2s ease forwards;
+  max-width: 90%;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px #00ffff;
+}
+
+.content p {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+/* Animasi fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsif */
+@media (max-width: 480px) {
+  .logo {
+    width: 120px;
+  }
+  .hamburger {
+    right: 20px;
+    top: 20px;
+    width: 25px;
+    height: 20px;
+  }
+  .nav-menu {
+    width: 150px;
+    right: -170px;
+  }
+  .nav-menu.active {
+    right: 10px;
+  }
+  .nav-menu a {
+    font-size: 1rem;
+  }
+  .content h1 {
+    font-size: 2rem;
+  }
+  .content p {
+    font-size: 1rem;
+  }
+}

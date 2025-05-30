@@ -1,0 +1,160 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Fullscreen Video Background */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6) contrast(1.1) saturate(1.2);
+}
+
+/* Header Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.logo img {
+  height: 50px;
+  transition: transform 0.4s ease;
+}
+.logo img:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+.navbar a {
+  text-decoration: none;
+  color: #e0f7fa;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s ease;
+}
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #00ffff;
+  transition: width 0.3s ease;
+}
+.navbar a:hover::after,
+.navbar a.active::after {
+  width: 100%;
+}
+.navbar a:hover,
+.navbar a.active {
+  color: #00ffff;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-text {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+  animation: fadeIn 1.2s ease forwards;
+}
+.hero h1 {
+  color: #00ffff;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px #00ffff;
+  animation: pulse 3s infinite;
+}
+.hero p {
+  color: #e0f7fa;
+  font-size: 1.2rem;
+}
+
+/* 5 Alasan Section */
+.reasons {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 40px;
+}
+.reason {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 5px solid #00ffff;
+  padding: 25px;
+  border-radius: 14px;
+  transition: 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
+  color: white;
+  position: relative;
+}
+.reason:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+}
+.reason h2 {
+  color: #38e8ff;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.reason p {
+  color: #d1f7ff;
+  font-size: 1.05rem;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 15px #00ffff; }
+  50% { text-shadow: 0 0 35px #00ffff; }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .reason {
+    padding: 20px;
+  }
+}

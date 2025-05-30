@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video Background dengan Logo Tengah dan Navbar</title>
+  <link rel="stylesheet" href="Dashboard.css" />
+</head>
+<body>
+
+  <!-- Video Background -->
+  <video autoplay muted loop id="bg-video">
+    <source src="dashborad bg.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Logo Tengah Atas (gunakan tag img) -->
+  <a href="#" class="logo" aria-label="Logo Website">
+    <img src="Logo.png" alt="Logo Website" />
+  </a>
+
+  <!-- Hamburger Menu -->
+  <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="nav-menu" id="nav-menu" aria-label="Main menu">
+    <ul>
+      <li><a href="Beranda.html">Beranda</a></li>
+      <li><a href="Layanan.html">Layanan</a></li>
+      <li><a href="profil.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- Tulisan Sambutan -->
+  <div class="content">
+    <h1>Selamat Datang di Dashboard Kami</h1>
+    <p>Nikmati pengalaman terbaik dengan tampilan modern dan interaktif.</p>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburger.click();
+      }
+    });
+  </script>
+
+</body>
+</html>
